@@ -12,7 +12,8 @@ QRectF cuerpograf::boundingRect() const
 
 void cuerpograf::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    painter->setBrush(Qt::darkGreen);
+    setScale(0.01);
+    painter->setBrush(Qt::cyan);
     painter->drawEllipse(boundingRect());
 }
 

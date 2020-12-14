@@ -24,15 +24,11 @@ public:
 private slots:
     void actualizar();
     void on_inicio_clicked();
+
     void on_pausa_clicked();
-
     void on_ingresar_datos_clicked();
-
-
-
-
-
     int on_boton_cantidad_planetas_2_clicked();
+
 
 private:
     Ui::MainWindow *ui;

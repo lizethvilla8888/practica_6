@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    h_limit = 2000;
+    h_limit = 2000;//mi pantalla es 1920 x 1080
     v_limit = 1000;
     dt = 0.1;
 
@@ -19,6 +19,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->graphicsView->setScene(scene);
     ui->centralwidget->adjustSize();
+
+    ui->graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
     setWindowTitle("Sistema interplanetario");
 
     timer->stop();
@@ -75,9 +79,9 @@ void MainWindow::on_ingresar_datos_clicked()
     double radio = ui->radio_line->text().toDouble();
     double masa = ui->masa->text().toDouble();
 
-    bars.append(new cuerpograf(x,y,vx,vy,masa,radio));
-    scene->addItem(bars.back());
-    qDebug() << "cuerpo agregado a lista";
+    bars.push_back(new cuerpograf(x,y,vx,vy,masa,radio));
+    //scene->addItem(bars.back());
+
 }
 
 int MainWindow::on_boton_cantidad_planetas_2_clicked()
